@@ -3,5 +3,15 @@ Rails.application.routes.draw do
     sessions: "customers/sessions"
   }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+root "items#top"
+
+resource :customers, only: [:show, :edit, :update]
+get "customers/leave" => "customers#leave"
+patch "customers/withdraw" => "customers#withdraw"
+
+resources :addresses, except: [:new, :show]
+resources :orders, only: [:new, :index, :show, :create]
+post "orders/confirm" => "orders#confirm"
+get "orders/done" => "orders#done"
+
 end
