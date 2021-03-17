@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   }
 
 root "items#top"
+get "about" => "items#about"
+resources :items, only: [:index, :show]
 
 resource :customers, only: [:show, :edit, :update]
 get "customers/leave" => "customers#leave"
