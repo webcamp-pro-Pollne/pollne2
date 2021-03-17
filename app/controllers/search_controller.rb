@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def search
     @value = params["search"]["value"]         #データを代入
     @how = params["search"]["how"]             #データを代入
-    @datas = search_for(@how, @value) 
+    @datas = search_for(@how, @value)
     #def search_forを実行(引数に検索ワードと検索方法)
     @genres = Genre.all
   end
@@ -15,7 +15,7 @@ class SearchController < ApplicationController
   end
 
   def forward(value)                              #forward以降は商品名検索の定義しかしてません。
-    Item.where("name LIKE ?", "#{value}%")        
+    Item.where("name LIKE ?", "#{value}%")
   end
 
   def backward(value)

@@ -1,20 +1,7 @@
-<div class="name-search">
-  <% if customer_signed_in? %>
-    <h5>商品名検索</h5>
-    <%= form_with url: search_search_path, method: :get, local: true do |f| %>
-      <%= f.text_field 'search[value]', size: "26x4" %><br>
-      <span class="search-button col-xs-12 text-right">
-        <%= f.select 'search[how]', options_for_select({ "部分一致" => "partical", "前方一致" => "forward", "後方一致" => "backward", "完全一致" => "match" }) %>
-        <%= f.submit :"検索" %>
-      </span>
-    <% end %>
-  <% end %>
-</div>
-
 <table class="table genre-table">
   <thead>
     <tr>
-      <th>ジャンル検索</th>
+      <th class="text-warning">ジャンル検索</th>
       <th></th>
       <th></th>
       <th></th>

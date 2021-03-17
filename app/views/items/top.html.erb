@@ -1,4 +1,10 @@
-<h1>Top</h1>
-<h2>新作商品一覧</h2>
-
-<%= render "search", genres:@genres, items:@items %>
+<div class="container">
+  <div id="box-slide-show">
+    <div id="skippr-images">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+    </div>
+  </div>
+  <%= render "search", genres:@genres, items:@items %>
+</div>
