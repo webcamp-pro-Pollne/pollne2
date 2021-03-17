@@ -1,1 +1,10 @@
 <h1>Show</h1>
+
+<%= render "search", genres:@genres %>
+
+<h2><%= @item.name %></h2>
+<%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png" %>
+<p><%= @item.introduction %></p>
+<p><%= @item.price %></p>
+<p><%= @item.is_active %></p>
+
