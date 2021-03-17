@@ -1,0 +1,32 @@
+<h1>会員情報確認画面</h1>
+<table>
+  <thead>
+    <tr>
+      <th>姓</th>
+      <th>名</th>
+      <th>姓(カナ)</th>
+      <th>名(カナ)</th>
+      <th>郵便番号</th>
+      <th>住所</th>
+      <th>電話番号</th>
+      <th>メールアドレス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= form_with model: @customer do |f| %>
+      <tr>
+        <td><%= f.text_field :last_name %></td>
+        <td><%= f.text_field :first_name %></td>
+        <td><%= f.text_field :last_nama_kana %></td>
+        <td><%= f.text_field :first_name_kana %></td>
+        <td><%= f.text_field :postal_code %></td>
+        <td><%= f.text_field :address %></td>
+        <td><%= f.telephone_field :telephone_number %></td>
+        <td><%= f.email_field :email %></td>
+      </tr>
+      <tr>
+        <td><%= f.submit "更新する" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
