@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <h2>配送先/登録一覧</h2>
+    </div>
+
+      <div class="col-lg-9 col-xs-offset-1">
+      <%= form_with model:@address, local: true do |f| %>
+
+
+        <div class="field"><br>
+          <%= f.label :postal_code, "郵便番号" %><br>
+          <%= f.text_field :postal_code %>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label :address, "住所" %><br>
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="field"><br>
+          <%= f.label :name, "宛名" %><br>
+          <%= f.text_field :name %>
+        </div>
+
+
+
+
+         <div class="action"><br>
+          <%= f.submit "登録する", class: "btn btn-success" %>
+        </div><br>
+      </div>
+
+    <% end %>
+
+</div>
+<div class="col-xs-9">
+        <table class="table table-bordered">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+          <% @addresses.each do |addresses| %>
+          <tr>
+          	<td><%= addresses.postal_code %></td>
+          	<td><%= addresses.address %></td>
+          	<td><%= addresses.name %></td>
+          	<td><%= link_to "編集する", edit_address_path(addresses), class: "btn btn-primary" %>
+          		<%= link_to "削除する", address_path(addresses), method: :delete, class: "btn btn-danger" %>
+          	</td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+  </div>
+</div>
