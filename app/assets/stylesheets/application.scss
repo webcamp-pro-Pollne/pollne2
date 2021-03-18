@@ -17,3 +17,48 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+.header-logo {
+  height: 80%;
+  
+}
+
+#box-slide-show{
+  position: ralative;
+  height: 600px;
+}
+.top-text {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.2);
+}
+.top-text h3 {
+  color: white;
+}
+.image1 {
+  background-image: url(cake1.jpeg);
+}
+.image2 {
+  background-image: url(cake3.jpeg);
+}
+.image3 {
+  background-image: url(cake4.jpeg);
+}
+.image4 {
+  background-image: url(cake2.jpeg);
+}
+.image5 {
+  background-image: url(cookie2.jpeg);
+}
+
+.items-index{
+
+}
