@@ -10,17 +10,7 @@
   </head>
 
   <body>
-   <header>
-    <% if customer_signed_in? %>
-     <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-     <%= link_to "マイページ", customers_path %>
-      
-    <% else %>
-      <%= link_to "sushi", new_customer_session_path %>
-      <%= link_to "shisu", new_customer_registration_path %>
-    <% end %>
-   </header>
-    
+    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>

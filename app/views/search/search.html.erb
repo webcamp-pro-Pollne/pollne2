@@ -1,0 +1,14 @@
+<h1>検索結果</h1>
+<% if @datas.empty? %>
+  <h2>該当する商品はありません</h2>
+<% end %>
+<%= render "items/search", genres:@genres %>
+  <% @datas.each do |data| %>
+    <div>
+      <%= link_to item_path(item.id) do %>
+        <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png" %><br>
+      <% end %>
+      <p><%=  data.name %></p><br>
+      <p>￥<%= data.price_without_tax %></p>
+    </div>
+  <% end %>

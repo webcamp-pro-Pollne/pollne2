@@ -1,5 +1,25 @@
-<h1>Top</h1>
-<h2>新作商品一覧</h2>
-<h2>ジャンル検索</h2>
-
-
+<div class="container">
+  <div id="box-slide-show">
+    <div id="skippr-images">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+      <div class="image5"></div>
+    </div>
+    <div class="top-text">
+    <h3 class="text-center">
+        ようこそ、ながのCAKEへ！</br>
+        このサイトは、ケーキ販売はECサイトになります。</br>
+        会員でない方も商品の回覧はできますが、</br>
+        購入には会員登録が必要になります。
+    </h3>
+    </div>
+  </div>
+  
+  <%= render "search", genres:@genres, items:@items %>
+  
+  <div>
+    
+  </div>
+</div>
