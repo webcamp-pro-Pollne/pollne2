@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  
-  devise_for :admins, controllers: {
-  sessions: 'admins/sessions'
-  }
-  
+
+  devise_for :admins, skip: :all
+  devise_scope :admin do
+    get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
+    post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
+    delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
+  end
+
   devise_for :customers, controllers: {
     sessions: "customers/sessions"
   }
@@ -27,8 +30,8 @@ resources :addresses, except: [:new, :show]
 resources :orders, only: [:new, :index, :show, :create]
   namespace :admins do
     resources :orders, only: [:show, :update]
-    get "admins" => "admins/order#top"
   end
+  get "admins" => "admins/orders#top"
 
 namespace :admins do
     resources :genres, only: [:index, :edit, :create, :update]
