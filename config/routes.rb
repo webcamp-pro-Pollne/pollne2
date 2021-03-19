@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :admins, skip: :all
   devise_scope :admin do
     get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     sessions: "customers/sessions"
   }
 
+
 root "items#top"
 get "about" => "items#about"
 resources :items, only: [:index, :show]
@@ -18,7 +20,8 @@ resources :items, only: [:index, :show]
     resources :items
   end
 
-resource :customers, only: [:show, :edit, :update]
+resource :customers, only: [:edit, :update]
+get "customers/my_page" => "customers#show"
 get "customers/leave" => "customers#leave"
 patch "customers/withdraw" => "customers#withdraw"
   namespace :admins do
