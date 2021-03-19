@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :customers, controllers: {
-    sessions: "customers/sessions"
-  }#customer/editがurlダブり
+  devise_for :customers, :path => "/customer"
 
 root "items#top"
 get "about" => "items#about"
 resources :items, only: [:index, :show]
 
-resource :customers, only: [:show, :edit, :update]
+resource :customers, only: [:edit, :update]
+get "customers/my_page" => "customers#show"
 get "customers/leave" => "customers#leave"
 patch "customers/withdraw" => "customers#withdraw"
 

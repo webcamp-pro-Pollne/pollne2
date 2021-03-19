@@ -1,38 +1,52 @@
-<h1>マイページ</h1>
-<h3>会員情報</h3>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1">
+      </div>
+    <div class = "col-md-10">
+      <h1 class = "text-center">マイページ</h1>
+      <h3 class = "">会員情報</h3>
 
-<table>
-    <thead>
-      <tr>
-        <th>姓:<%= @customer.first_name %></th>
-        <th>名:<%= @customer.last_name %></th>
-      </tr>
-      <tr>
-        <th>姓(カナ):<%= @customer.first_name_kana %></th>
-        <th>名(カナ):<%= @customer.last_name_kana %></th>
-      </tr>
-      <tr>
-        <th>郵便番号:<%= @customer.postal_code %></th>
-      </tr>
-      <tr>
-        <th>住所:<%= @customer.address %></th>
-      </tr>
-      <tr>
-        <th>電話番号:<%= @customer.telephone_number %></th>
-      </tr>
-      <tr>
-        <th>メールアドレス:<%= @customer.email %></th>
-      </tr>
-      </tr>
-    </thead>
-</table>
-
-
-<h3>配送先一覧</h3>
-<%= link_to "配送先一覧へ", addresses_path %>
-
-<h3>会員情報編集へ</h3>
-<%= link_to "会員情報編集へ", edit_customers_path %>
-
-<h3>注文履歴一覧へ</h3>
-<%#order_details　作成後　%>
+      <table class = "table table-dark text-center">
+        <thead>
+          <tr>
+            <th>名:&emsp;<%= @customer.last_name %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;姓:&emsp;<%= @customer.first_name %></th>
+          </tr>
+          <tr>
+            <th>名(カナ):<%= @customer.last_name_kana %>&emsp;&emsp;&emsp;&emsp;姓(カナ):<%= @customer.first_name_kana %></th>
+          </tr>
+            <tr>
+            <th>郵便番号:<%= @customer.postal_code %></th>
+          </tr>
+          <tr>
+            <th>住所:<%= @customer.address %></th>
+          </tr>
+          <tr>
+            <th>電話番号:<%= @customer.telephone_number %></th>
+          </tr>
+          <tr>
+            <th>メールアドレス:<%= @customer.email %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class = "col-md-1">
+      </div>
+     <div class = "col-md-1">
+      </div>
+    <div class = "col-md-3 text-center">
+      <h3>配送先一覧</h3>
+        <%= link_to "配送先一覧へ", addresses_path, class: "btn btn-success"%>
+    </div>
+    <div class = "col-md-4 text-center">
+      <h3>注文履歴一覧へ</h3>
+        <%#order_details　作成後　%>
+    </div>
+    <div class = "col-md-3 text-center">
+      <h3>会員情報編集へ</h3>
+      <%= link_to "会員情報編集へ", edit_customers_path, class: "btn btn-info" %>
+    </div>
+    <div class = "col-md-1">
+    </div>
+    </div>
+  </div>
+</div>
