@@ -37,7 +37,7 @@ resources :orders, only: [:new, :index, :show, :create]
   get "admins" => "admins/orders#top"
 
 namespace :admins do
-    resources :genres, only: [:index, :edit, :create, :update]
+    resources :genres, only: [:index, :edit, :create, :update, :destroy]
 end
 
 namespace :admins do

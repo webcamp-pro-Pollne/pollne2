@@ -5,7 +5,7 @@
 
   <div class="row">
     <%= form_with model:[:admins, @genre], local: true do |f| %>
-    <table class="table-borderless">
+    <table class="table">
       <tr>
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name %></td>
@@ -16,18 +16,19 @@
   </div>
 
   <div class="row">
-    
+    <div class="col-4">
     <table class="table">
       <tr>
         <th>ジャンル</th>
         <th></th>
       </tr>
-      <%= @genres.each do |genre| %>
+      <% @genres.each do |genre| %>
         <tr>
           <td><%= genre.name %></td>
           <td><%= link_to "編集する", edit_admins_genre_path(genre.id), class:"btn btn-success" %></td>
         </tr>
       <% end %>
     </table>
+    </div>
   </div>
 </div>
