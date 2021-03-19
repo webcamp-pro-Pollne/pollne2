@@ -19,12 +19,12 @@
           </tr>
         </thead>
         <tbody>
-        <% @orders.each do |order| %>
+        <% @order.customer.cart_items.each do |cart_item| %>
           <tr>
             <td><%= attachment_image_tag order.item, :image,:fill,50,50,format: "jpeg",fallback: "no_image.jpg",size: "50x50" %></td>
-            <td><%= order.tannka %></td>
-            <td><%= order.order_detail.quantity %></td>
-            <td><%= order.item.syoukei %></td>
+            <td><%= cart_item.tannka %></td>
+            <td><%= cart_item.quantity %></td>
+            <td><%= cart_item.item.syoukei %></td>
           </tr>
         <% end %>
         </tbody>
@@ -62,6 +62,7 @@
   </div>
   <%= form_with @order,url: "orders_confirm_path",method: :post,local: true do |f| %>
     <%= f.submit "注文を確定する",class:"btn btn-primary" %>
+  <% end %>
 </div>
 
 
@@ -76,18 +77,3 @@
 
 
 
-<%= @order.item.name %>
-<%= @order.order_details.quantity %>
-<%= @item.name %>
-<%= @order.syoukei %>
-<%= @order.shipping_cost %>
-<%= @order.payment_method %>
-<%= @order.postal_code %>
-<%= @order.address %>
-<%= @order.name %>
-<%= form_with model:[@item, @order], url:(item_order_path) do |f| %>
-  <%= f.hidden_field :payment_method %>
-  <%= f.hidden_field :address %>
-  <%= f.hidden_field :postal_code %>
-  <%= f.submit %>
-<% end %>

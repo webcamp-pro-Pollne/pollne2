@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   end
 
   def syoukei
-    item * quantity
+    item.price * quantity * 1.08
   end
 
   def total_price

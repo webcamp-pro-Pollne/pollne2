@@ -3,8 +3,9 @@ class OrdersController < ApplicationController
   before_action :order_params, only: :confirm
 
   def new
-    order.delete(:order)
+    Order.delete(:order)#この一文がわからない
     @order = Order.new
+    @customer = current_customer
   end
 
   def index
@@ -17,11 +18,13 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    @customer = current_customer
     @order = Order.new(@attr)
     session[:order] = @order
-    if @order.invalid? #orderの中身がない(true)のとき、newへrender
-      render :new
-    end
+
+    # if @order.invalid? #orderの中身がない(true)のとき、newへrender
+      # render :new
+    # end
   end
 
   def done
