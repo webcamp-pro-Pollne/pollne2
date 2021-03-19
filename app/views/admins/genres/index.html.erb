@@ -9,22 +9,23 @@
       <tr>
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name %></td>
-        <td><%= f.submit "新規投稿", class: "btn btn-success" %></td>
+        <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
       </tr>
     </table>
     <% end %>
   </div>
 
   <div class="row">
+    
     <table class="table">
-        <tr>
-          <th>ジャンル</th>
-          <th></th>
-        </tr>
+      <tr>
+        <th>ジャンル</th>
+        <th></th>
+      </tr>
       <%= @genres.each do |genre| %>
         <tr>
           <td><%= genre.name %></td>
-          <td></td>
+          <td><%= link_to "編集する", edit_admins_genre_path(genre.id), class:"btn btn-success" %></td>
         </tr>
       <% end %>
     </table>
