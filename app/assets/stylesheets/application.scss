@@ -21,7 +21,7 @@
 
 .header-logo {
   height: 80%;
-  
+
 }
 
 #box-slide-show{
@@ -59,6 +59,12 @@
   background-image: url(cookie2.jpeg);
 }
 
-.items-index{
+.about {
+  background-image: url(sawamura.png);
+  background-size: cover;
+  height: 1000px;
+}
 
+.about-text {
+  color: blue;
 }
