@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <h2>配送先編集</h2>
+    </div>
+
+
+      <%= form_with model:@addresses, local: true do |f| %>
+      <%= render 'addresses/error', model: f.object %>
+       
+        <div class="form-group"><br>
+          <%= f.label :postal_code, "郵便番号" %><br>
+          <%= f.text_field :postal_code %>
+        </div>
+
+        <div class="form_group"><br>
+          <%= f.label :address, "住所" %><br>
+          <%= f.text_field :address %>
+        </div>
+
+        <div class="form_group"><br>
+          <%= f.label :name, "宛名" %><br>
+          <%= f.text_field :name %>
+        </div>
+
+
+
+
+         <div class="action"><br>
+          <%= f.submit "編集する", class: "btn btn-success" %>
+         </div><br>
+      </div>
+      <%= f.hidden_field :id %>
+    <% end %>
