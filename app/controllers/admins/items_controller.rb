@@ -18,4 +18,12 @@ class Admins::ItemsController < ApplicationController
   def update
   end
 
+  def destroy
+  end
+  
+  private
+
+  def items_params
+    params.require(:item).permit(:name)
+  end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   devise_for :admins, skip: :all
-  devise_scope :admins do
+  devise_scope :admin do
     get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
     post 'admins/sign_in' => 'admins/sessions#create', as: 'admin_session'
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
@@ -37,7 +37,7 @@ resources :orders, only: [:new, :index, :show, :create]
   get "admins" => "admins/orders#top"
 
 namespace :admins do
-    resources :genres, only: [:index, :edit, :create, :update]
+    resources :genres, only: [:index, :edit, :create, :update, :destroy]
 end
 
 namespace :admins do
