@@ -1,17 +1,17 @@
 <div class="container">
-  <h1>商品一覧</h1>
 
+  <%= render "search", genres:@genres %>
 
+  <h2>商品一覧</h2>
+  <%= @items.each do |item| %>
+    <div class="items-index">
+      <%= link_to item_path(item.id) do %>
+        <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.jpeg" %>
+      <% end %>
+      <%= link_to item.name, item_path(item.id) %>
+      <%= item.tax_price %>
+    </div>
+  <% end %>
+  <%= paginate @items %>
 
-<%= @items.each do |item| %>
-  <div class="items-index">
-    <%= link_to item_path(item.id) do %>
-      <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.jpeg" %>
-    <% end %>
-    <%= link_to item.name, item_path(item.id) %>
-    <%= item.tax_price %>
-  </div>
-<% end %>
-
-<%= render "search", genres:@genres %>
 </div>
