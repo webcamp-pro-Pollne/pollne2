@@ -1,36 +1,56 @@
-<h1>会員情報編集画面</h1>
-<table>
-  <tbody>
-    <%= form_with model: @customer, url: customers_path, method: :patch, local: true do |f| %>
-      <tr>
-        <td><p>姓</p><%= f.text_field :last_name %></td>
-      </tr>
-      <tr>
-        <td><p>名</p><%= f.text_field :first_name %></td>
-      </tr>
-      <tr>
-        <td><p>姓(カナ)</p><%= f.text_field :last_name_kana %></td>
-      </tr>
-      <tr>
-        <td><p>名(カナ)</p><%= f.text_field :first_name_kana %></td>
-      </tr>
-      <tr>
-        <td><p>郵便番号</p><%= f.text_field :postal_code %></td>
-      </tr>
-      <tr>
-        <td><p>住所</p><%= f.text_field :address %></td>
-      </tr>
-      <tr>
-        <td><p>電話番号</p><%= f.telephone_field :telephone_number %></td>
-      </tr>
-      <tr>
-        <td><p>メールアドレス</p><%= f.email_field :email %></td>
-      </tr>
-      <tr>
-        <td><%= f.submit "更新する" %></td>
-        <td><%= link_to "退会", customers_leave_path %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </thead>
-</table>
+<h1 class = "text-center p-3 mb-2 bg-info text-white"><i class="fas fa-wrench"></i>&nbsp;&nbsp;会員情報編集画面</h1>
+<div class = "container">
+    <div class = "row">
+      <div class = "col-md-1">
+        </div>
+      <div class = "col-md-10">
+       <table class = " table table-success row d-flex justify-content-around ">
+        <thead>
+        <%= form_with model: @customer, url: customers_path, method: :patch, local: true do |f| %>
+          <tr>
+           <p><th>氏名</th></p>
+            <th><%= f.text_field :last_name, class: "col-md-12 text-center" %></th>
+            <th><%= f.text_field :first_name, class: "col-md-12 text-center" %></th>
+          </tr>
+          <tr>
+            <th>カナ</th>
+            <th><%= f.text_field :last_name_kana, class: "col-md-12 text-center" %></th>
+            <th><%= f.text_field :first_name_kana, class: "col-md-12 text-center" %></th>
+          </tr>
+          <tr>
+            <th>郵便番号</th>
+            <th colspan = "2"><%= f.text_field :postal_code, class: "col-md-12 text-center" %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <th colspan = "2"><%= f.text_field :address, class: "col-md-12 text-center" %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>電話番号</th>
+            <th colspan = "2"><%= f.telephone_field :telephone_number, class: "col-md-12 text-center" %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>メールアドレス</th>
+            <th colspan = "2"><%= f.email_field :email, class: "col-md-12 text-center" %></th>
+            <th></th>
+          </tr>
+          <tr>
+            <th colspan = "2"><%= button_tag type: "submit", class: "btn btn-primary float-right" do %>
+            <i class="fas fa-thumbs-up"></i>&nbsp;&nbsp;更新する
+            <% end %></th>
+            <th colspan = "2"><%= link_to customers_leave_path, class: "btn btn-danger float-right" do %>
+            <i class="fas fa-burn"></i>&nbsp;&nbsp;退会
+            <% end %></th>
+            <th></th>
+          </tr>
+        <% end %>
+        </thead>
+      </table>
+    </div>
+    <div class = "col-md-1">
+    </div>
+  <div>
+</div>

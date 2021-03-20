@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  has_many :ordersdetails
   belongs_to :customer
 
   enum payment_method: [:クレジットカード, :銀行振込]
