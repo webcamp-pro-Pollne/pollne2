@@ -5,8 +5,8 @@
 <%= render "items/search", genres:@genres %>
   <% @datas.each do |data| %>
     <div>
-      <%= link_to item_path(item.id) do %>
-        <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png" %><br>
+      <%= link_to item_path(@item.id) do %>
+        <%= attachment_image_tag @item, :image, :fill, 60, 60, fallback: "no_image.png" %><br>
       <% end %>
       <p><%=  data.name %></p><br>
       <p>￥<%= data.tax_price %></p>

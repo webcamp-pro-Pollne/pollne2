@@ -5,7 +5,7 @@
 
   <div class="row">
     <%= form_with model:[:admins, @genre], local: true do |f| %>
-    <table class="table">
+    <table class="table-borderless">
       <tr>
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name %></td>
