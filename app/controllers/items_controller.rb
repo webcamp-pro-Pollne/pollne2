@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
 
     def top
-      @items = Item.all.order(created_at: :desc)
-      @items = Item.page(params[:page]).per(4)
+      @items_all = Item.all.order(created_at: :desc)
+      @items = @items_all.page(params[:page]).per(4)
       @genres = Genre.all
     end
 
@@ -10,8 +10,8 @@ class ItemsController < ApplicationController
     end
 
     def index
-      @items = Item.all.order(created_at: :desc)
-      @items = Item.page(params[:page]).per(8)
+      @items_all = Item.all.order(created_at: :desc)
+      @items = @items_all.page(params[:page]).per(8)
       @genres = Genre.all
     end
 

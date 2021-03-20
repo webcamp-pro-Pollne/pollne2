@@ -5,7 +5,7 @@ class Item < ApplicationRecord
     attachment :image
 
     def tax_price
-      (price * 1.08).floor
+      (price * 1.08).floor.to_s(:delimited)
     end
 
 end
