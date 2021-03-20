@@ -19,14 +19,16 @@
 
   <%= render "search", genres:@genres, items:@items %>
 
-  <% @items.each do |item| %>
-    <div class="items-index">
-      <%= link_to item_path(item.id) do %>
-        <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.jpeg" %>
-      <% end %>
-    <%= link_to item.name, item_path(item.id) %>
-    <%= item.tax_price %>
-    </div>
-  <% end %>
+  <div class="row" style="justify-content: space-between">
+    <% @items.each do |item| %>
+      <div class="items-index">
+        <%= link_to item_path(item.id) do %>
+          <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpeg" %>
+        <% end %>
+        <p><%= link_to item.name, item_path(item.id) %></p>
+        <p>¥ <%= item.tax_price %></p>
+      </div>
+    <% end %>
+  </div>
     <%= link_to "全ての商品を見る>", items_path %>
 </div>

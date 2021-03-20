@@ -1,11 +1,15 @@
 class Item < ApplicationRecord
+
     has_many :cart_items
-    belongs_to :customer
+
+    # belongs_to :customer
+    has_many :genres
 
     attachment :image
 
-    def tex_price
-      price * 1.08
+    def tax_price
+      (price * 1.08).floor.to_s(:delimited)
     end
 
 end
+
