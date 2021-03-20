@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+
+    has_many :cart_items
+
     # belongs_to :customer
     has_many :genres
 
@@ -9,3 +12,4 @@ class Item < ApplicationRecord
     end
 
 end
+
