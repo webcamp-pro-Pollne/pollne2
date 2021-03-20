@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :admins, skip: :all
   devise_scope :admins do
     get 'admins/sign_in' => 'admins/sessions#new', as: 'new_admin_session'
@@ -46,4 +45,9 @@ end
 post "orders/confirm" => "orders#confirm"
 get "orders/done" => "orders#done"
 get 'search/search'
+
+
+resources :cart_items, only: [:index, :create, :destroy, :update]
+delete 'cart_items/destroy_all'
+
 end
