@@ -47,7 +47,8 @@ get "orders/done" => "orders#done"
 get 'search/search'
 
 
-resources :cart_items, only: [:index, :create, :destroy, :update]
-delete 'cart_items/destroy_all'
+resources :cart_items, only: [:index, :create, :destroy, :update] do
+  delete 'destroy_all' #ネストをかけて、destroy_allをグループ化するイメージ
+end
 
 end
