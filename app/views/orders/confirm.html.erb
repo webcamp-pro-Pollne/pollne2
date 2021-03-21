@@ -19,12 +19,12 @@
           </tr>
         </thead>
         <tbody>
-        <% @order.customer.cart_items.each do |cart_item| %>
+        <% @order.each do |order| %>
           <tr>
             <td><%= attachment_image_tag order.item, :image,:fill,50,50,format: "jpeg",fallback: "no_image.jpg",size: "50x50" %></td>
-            <td><%= cart_item.tannka %></td>
-            <td><%= cart_item.quantity %></td>
-            <td><%= cart_item.item.syoukei %></td>
+            <td><%= order.cart_item.tannka %></td>
+            <td><%= order.cart_item.quantity %></td>
+            <td><%= order.cart_item.item.syoukei %></td>
           </tr>
         <% end %>
         </tbody>
