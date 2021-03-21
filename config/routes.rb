@@ -30,6 +30,7 @@ patch "customers/withdraw" => "customers#withdraw"
 resources :addresses, except: [:new, :show]
 
 resources :orders, only: [:new, :index, :show, :create]
+
   namespace :admins do
     resources :orders, only: [:show, :update]
   end
@@ -47,7 +48,8 @@ get "orders/done" => "orders#done"
 get 'search/search'
 
 
-resources :cart_items, only: [:index, :create, :destroy, :update]
-delete 'cart_items/destroy_all'
+resources :cart_items, only: [:index, :create, :destroy, :update] do
+  delete 'destroy_all' #ネストをかけて、destroy_allをグループ化するイメージ
+end
 
 end
