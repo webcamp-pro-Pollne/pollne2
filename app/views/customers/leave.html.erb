@@ -1,7 +1,30 @@
-<h1>退会確認</h1>
-<h3>本当に退会しますか？</h3>
-<h5>退会すると会員登録情報や</h5>
-<h5>これまでの購入履歴や閲覧ができなくなります。</h5>
+<h1 class = "text-center p-3 mb-2 bg-danger text-white"><i class="fas fa-user-slash"></i>CAUTION!</h1>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1">
+      </div>
+        <div class = "col-md-10 text-center">
+          <p><h1>本当に退会しますか？</h1></p>
+          <p><h5>退会すると会員登録情報や</h5></p>
+          <p><h5><i class="fas fa-eye-slash"></i>これまでの購入履歴や閲覧ができなくなります。<i class="fas fa-eye-slash"></i></h5></p>
+          <p><h5>退会する場合は、「退会する」をクリックしてください。</h5></p>
 
-<div><%= link_to "退会しない", customers_my_page_path %></div>
-<div><%= link_to "退会する", customers_withdraw_path, method: :patch %></div>
+          <div class = "row">
+            <div class= "col-md-1">
+            </div>
+            <div class = "col-md-5 text-right"><%= link_to customers_my_page_path, class: "btn btn-primary col-md-6" do %>
+            <i class="far fa-hand-point-up"></i>&nbsp;&nbsp;退会しない
+            <% end %>
+            </div>
+            <div class = "col-md-5 text-left"><%= link_to customers_withdraw_path, method: :patch, class: "btn btn-danger col-md-6" do %>
+            <i class="fas fa-burn"></i>&nbsp;&nbsp;退会する
+            <% end %>
+            </div>
+            <div class= "col-md-1">
+            </div>
+          </div>
+        </div>
+        <div class = "col-md-1">
+        </div>
+    </div>
+</div>

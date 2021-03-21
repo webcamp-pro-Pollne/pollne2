@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
 
-  devise_for :customers, controllers: {
-    sessions: "customers/sessions"
-  }
+
+  devise_for :customers, :path => "customer/"
 
 
 root "items#top"
@@ -32,7 +31,7 @@ resources :addresses, except: [:new, :show]
 resources :orders, only: [:new, :index, :show, :create]
 
   namespace :admins do
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:top,:show, :update]
   end
   get "admins" => "admins/orders#top"
 
