@@ -8,11 +8,15 @@ class CartItem < ApplicationRecord
   end
 
   def syoukei
-    item.price * quantity * 1.08
+    (item.price * amount * 1.08).floor
   end
 
-  def total_price
-    Order.all.sum(:price)
+  def total_price#今回は使ってない
+    CartItem.all.sum(:price)
+  end
+
+  def self.sum_tax(sum)
+    (sum * 1.08).floor.to_s(:delimited)
   end
 
 

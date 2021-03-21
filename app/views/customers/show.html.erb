@@ -1,52 +1,63 @@
+<h1 class = "text-center p-3 mb-2 bg-success text-white"><i class="far fa-id-card"></i>&nbsp;&nbsp;マイページ</h1>
 <div class = "container">
-  <div class = "row">
-    <div class = "col-md-1">
-      </div>
-    <div class = "col-md-10">
-      <h1 class = "text-center">マイページ</h1>
-      <h3 class = "">会員情報</h3>
-
-      <table class = "table table-dark text-center">
+    <div class = "row">
+      <div class = "col-md-1">
+        </div>
+      <div class = "col-md-10">
+    　  <div class = "row">
+         <h3 class = "text-center col-md-3 shadow-lg bg-white rounded">会員情報&nbsp;&nbsp;<i class="fas fa-pen-square"></i></h3>
+          <div class = "col-md-9">
+            <%= link_to  edit_customers_path, class: "btn btn-info" do %>
+            <i class="fas fa-wrench"></i>&nbsp;&nbsp;会員情報編集はこちら！
+            <% end %>
+          </div>
+        </div>
+      <table class = "table text-center">
         <thead>
           <tr>
-            <th>名:&emsp;<%= @customer.last_name %>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;姓:&emsp;<%= @customer.first_name %></th>
+            <th class = "table-active">氏名</th>
+            <th><%= @customer.last_name %></th>
+            <th><%= @customer.first_name %></th>
           </tr>
           <tr>
-            <th>名(カナ):<%= @customer.last_name_kana %>&emsp;&emsp;&emsp;&emsp;姓(カナ):<%= @customer.first_name_kana %></th>
-          </tr>
-            <tr>
-            <th>郵便番号:<%= @customer.postal_code %></th>
-          </tr>
-          <tr>
-            <th>住所:<%= @customer.address %></th>
+            <th class = "table-active">カナ</th>
+            <th><%= @customer.last_name_kana %></th>
+            <th><%= @customer.first_name_kana %></th>
           </tr>
           <tr>
-            <th>電話番号:<%= @customer.telephone_number %></th>
+            <th class = "table-active">郵便番号</th>
+            <th colspan = "2"><%= @customer.postal_code %></th>
           </tr>
           <tr>
-            <th>メールアドレス:<%= @customer.email %></th>
+            <th class = "table-active">住所</th>
+            <th colspan = "2"><%= @customer.address %></th>
+          </tr>
+          <tr>
+            <th class = "table-active">電話番号</th>
+            <th colspan = "2"><%= @customer.telephone_number %></th>
+          </tr>
+          <tr>
+            <th class = "table-active">メールアドレス</th>
+            <th colspan = "2"><%= @customer.email %></th>
           </tr>
         </thead>
       </table>
     </div>
-    <div class = "col-md-1">
-      </div>
-     <div class = "col-md-1">
-      </div>
-    <div class = "col-md-3 text-center">
-      <h3>配送先一覧</h3>
-        <%= link_to "配送先一覧へ", addresses_path, class: "btn btn-success"%>
+    <div class = "col-md-3">
+    </div>
+    <div class = "col-md-3 text-center" >
+      <h3 class = "shadow-lg bg-white rounded"><i class="fas fa-gift "></i>&nbsp;&nbsp;配送先一覧</h3>
+        <%= link_to  addresses_path, class: "btn btn-success" do %>
+        <i class="fas fa-share-square"></i>配送先一覧はこちら！
+        <% end %>
     </div>
     <div class = "col-md-4 text-center">
-      <h3>注文履歴一覧へ</h3>
+      <h3 class = "shadow-lg bg-white rounded"><i class="fas fa-file"></i>&nbsp;&nbsp;注文履歴一覧はこちら！</h3>
         <%#order_details　作成後　%>
     </div>
-    <div class = "col-md-3 text-center">
-      <h3>会員情報編集へ</h3>
-      <%= link_to "会員情報編集へ", edit_customers_path, class: "btn btn-info" %>
+    <div class = "col-md-4">
     </div>
     <div class = "col-md-1">
     </div>
     </div>
   </div>
-</div>

@@ -7,9 +7,8 @@ Rails.application.routes.draw do
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
 
-  devise_for :customers, controllers: {
-    sessions: "customers/sessions"
-  }
+
+  devise_for :customers, :path => "customer/"
 
 
 root "items#top"
@@ -30,8 +29,9 @@ patch "customers/withdraw" => "customers#withdraw"
 resources :addresses, except: [:new, :show]
 
 resources :orders, only: [:new, :index, :show, :create]
+
   namespace :admins do
-    resources :orders, only: [:show, :update]
+    resources :orders, only: [:top,:show, :update]
   end
   get "admins" => "admins/orders#top"
 
@@ -47,7 +47,8 @@ get "orders/done" => "orders#done"
 get 'search/search'
 
 
-resources :cart_items, only: [:index, :create, :destroy, :update]
-delete 'cart_items/destroy_all'
+resources :cart_items, only: [:index, :create, :destroy, :update] do
+  delete 'destroy_all' #ネストをかけて、destroy_allをグループ化するイメージ
+end
 
 end
