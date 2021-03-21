@@ -30,6 +30,7 @@ patch "customers/withdraw" => "customers#withdraw"
 resources :addresses, except: [:new, :show]
 
 resources :orders, only: [:new, :index, :show, :create]
+
   namespace :admins do
     resources :orders, only: [:show, :update]
   end

@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :order_params, only: :confirm
 
   def new
-    Order.delete(:order)#この一文がわからない
+    #Order.delete(:order)#この一文がわからない
     @order = Order.new
     @customer = current_customer
   end
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    @attr = params.require(:order).permit(:id,:postal_code,:address,:name,:payment_method)#変更を加えるカラムのみでいいのか
+    params.require(:order).permit(:id,:postal_code,:address,:name,:payment_method)#変更を加えるカラムのみでいいのか
   end
 
 end
