@@ -28,7 +28,13 @@ patch "customers/withdraw" => "customers#withdraw"
 
 resources :addresses, except: [:new, :show]
 
-resources :orders, only: [:new, :index, :show, :create]
+resources :orders, only: [:new, :index, :show, :create] do
+  collection do
+    post 'confirm'#collectionを使うとアクションの名前を書くだけでるーちぃんぐができる(idを伴わないのはmenberでよい)
+    get 'complete'
+  end
+end
+
 
   namespace :admins do
     resources :orders, only: [:show, :update]
@@ -42,8 +48,7 @@ end
 namespace :admins do
     resources :order_details, only: [:update]
 end
-post "orders/confirm" => "orders#confirm"
-get "orders/done" => "orders#done"
+
 get 'search/search'
 
 

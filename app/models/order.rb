@@ -6,15 +6,13 @@ class Order < ApplicationRecord
   enum status: [:入金待ち, :入金確認, :製作中, :発送準備中, :発送済み]
 
   def tannka
-    price * 1.08
+    (item.price * 1.08).floor
   end
 
   def syoukei
-    item.price * quantity * 1.08
+    (item.price * current_customer.cart_item.amount * 1.08).floor
   end
 
-  def total_price
-    Order.all.sum(:price)
-  end
+
 
 end

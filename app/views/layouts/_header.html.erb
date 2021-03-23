@@ -11,7 +11,7 @@
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li><%= link_to "商品一覧", items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
-            <li><%= link_to "カート", cart_items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "カート", cart_items_path, class:"nav-link", data: {"turbolinks" => false}, style:"color: rgb(239,228,228);" %></li>
             <li><%= link_to "マイページ", customers_my_page_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
             <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link", style:"color: rgb(239,228,228);" %></li>
           <% elsif admin_signed_in? %>
