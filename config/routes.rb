@@ -31,7 +31,7 @@ resources :addresses, except: [:new, :show]
 resources :orders, only: [:new, :index, :show, :create]
 
   namespace :admins do
-    resources :orders, only: [:top,:show, :update]
+    resources :orders, only: [:show, :update]
   end
   get "admins" => "admins/orders#top"
 

@@ -18,10 +18,32 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #596e79;
+}
+
+a {
+  color: #596e79;
+}
+main {
+  background-color: #f0ece2;
+  color: #596e79;
+}
+
+.btn {
+  background-color: #dfd3c3;
+  opacity: 0.6;
+}
+.btn:hover {
+  background-color: #dfd3c3;
+  opacity: 1;
+}
 
 .header-logo {
   height: 80%;
-
 }
 
 #box-slide-show{
@@ -30,7 +52,7 @@
 }
 .top-text {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -38,13 +60,15 @@
   margin:0;
   padding:0;
   z-index: 10;
-  background-color: rgba(0,0,0,0.2);
 }
 .top-text h3 {
   color: white;
 }
 .image1 {
   background-image: url(cake1.jpeg);
+}
+.image::before {
+  background-color: rgba(0,0,0,0.5);
 }
 .image2 {
   background-image: url(cake3.jpeg);
@@ -67,4 +91,12 @@
 
 .about-text {
   color: blue;
+}
+
+.admin-items-index-btn a:hover{
+  opacity: 1;
+}
+
+.admin-items-index-btn a {
+  opacity: 0.5;
 }

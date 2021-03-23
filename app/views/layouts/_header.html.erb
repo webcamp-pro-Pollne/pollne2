@@ -1,8 +1,8 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #87cefa">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #c7b198;">
     <div class="container">
       <%= link_to "/",  data: {"turbolinks" => false}, class:"navbar-brand header-logo" do %>
-        <%= image_tag 'nagano_cake_logo4.png', :size => '160x80'  %>
+        <%= image_tag 'nagano_cake_logo.png', :size => '160x80'  %>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,21 +10,21 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            <li><%= link_to "商品一覧", items_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "カート", cart_items_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "マイページ", customers_my_page_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-light" %></li>
+            <li><%= link_to "商品一覧", items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "カート", cart_items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "マイページ", customers_my_page_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link", style:"color: rgb(239,228,228);" %></li>
           <% elsif admin_signed_in? %>
-            <li><%= link_to "商品一覧", admins_items_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "会員一覧", admins_customers_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "注文履歴一覧", admins_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "ジャンル一覧", admins_genres_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class:"nav-link text-light" %></li>
+            <li><%= link_to "商品一覧", admins_items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "会員一覧", admins_customers_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "注文履歴一覧", admins_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "ジャンル一覧", admins_genres_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
           <% else %>
-            <li><%= link_to "About", about_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "商品一覧", items_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "sushi", new_customer_session_path, class:"nav-link text-light" %></li>
-            <li><%= link_to "shisu", new_customer_registration_path, class:"nav-link text-light" %></li>
+            <li><%= link_to "About", about_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "商品一覧", items_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "sushi", new_customer_session_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
+            <li><%= link_to "shisu", new_customer_registration_path, class:"nav-link", style:"color: rgb(239,228,228);" %></li>
           <% end %>
         </ul>
       </div>

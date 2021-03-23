@@ -1,16 +1,16 @@
 <div class="container">
-  <h2><%= @datas.name %><sapn>全<%= @datas.count %>件</sapn></h2>
+  <h2>検索結果<span class="font-weight-normal small">(全<%= @datas.count %>件)</span></h2>
 <% if @datas.empty? %>
   <h2>該当する商品はありません</h2>
 <% end %>
 <%= render "items/search", genres:@genres %>
-
+  <div class="row">
   <% @datas.each do |data| %>
-    <div>
+    <div class="items-index mx-3">
       <%= link_to item_path(data.id) do %>
-        <%= attachment_image_tag data, :image, :fill, 60, 60, fallback: "no_image.png" %><br>
+        <%= attachment_image_tag data, :image, :fill, 250, 200, fallback: "no_image.png" %><br>
       <% end %>
-      <p><%=  data.name %></p><br>
+      <p><%= link_to data.name, item_path(data.id) %></p>
       <p>￥<%= data.tax_price %></p>
     </div>
   <% end %>
