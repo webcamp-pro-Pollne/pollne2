@@ -1,0 +1,51 @@
+<h1>注文履歴詳細</h1>
+<table>
+  <% @order.each do |order| %>
+  <thead>
+    <tr>
+      <th>購入者</th>
+      <th><%= order.cusutomer.last_name %><%= order.cusutomer.first_name %></th>
+    </tr>
+    <tr>
+      <th>注文日</th>
+      <th><%= order.create_at %></th>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <th><%= order.customer.address %><%= order.name %></th>
+    </tr>
+    <tr>
+      <th>支払方法</th>
+      <th><%= order.payment_method %></th>
+    </tr>
+    <% form_with model: @order do |f| %>
+    <tr>
+      <th>注文ステータス</th>
+      <th><%= f.select :status %></th><!--selectボックスにenumの情報を出したい-->
+      <th><%= f.submit "更新" %></th>
+    </tr>
+  </thead>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+    </tr>
+    <tr>
+      <th>単価(税込)</th>
+    </tr>
+    <tr>
+      <th>小計</th>
+    </tr>
+    <tr>
+      <th>注文ステータス</th>
+    </tr>
+    <% end %>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <th></th><!--ordersdetaleから持ってくる-->
+    </tr>
+  </tbody>
+</table>
