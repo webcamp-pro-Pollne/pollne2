@@ -1,10 +1,10 @@
-<div calss = "container">
+<div class = "container">
   <div class = "row" >
     <div class =  "col-md-10 mx-auto">
       <div class = "d-flex mt-3">
         <h2>ショッピングカート</h2><!--destroy_allはすべてのデータを消すので、引数としてカートのすべてのデータをわたすためこんかいは(@cart_item)を渡している。なので、アクションではallのきじゅつはいらない。-->
           <%= link_to "カートを空にする",cart_item_destroy_all_path(@cart_items),method: :delete,class: "btn btn-danger ml-auto" %>
-        </div>
+      </div>
       <table class = "table table-bordered mt-3" >
         <thead>
           <tr>
@@ -36,7 +36,7 @@
         </tbody>
       </table>
       <div class = "d-flex mt-3">
-        <%= link_to "買い物を続ける",root_path,class: "btn btn-primary ml-4" %>
+        <%= link_to "買い物を続ける",root_path,class: "btn btn-primary ml-4", data: {"turbolinks" => false} %>
         <table class = "table table-bordered col-md-3 ml-auto" >
           <tr>
             <td>合計金額</td>
