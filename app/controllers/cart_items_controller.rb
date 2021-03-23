@@ -11,7 +11,7 @@ class CartItemsController < ApplicationController
     @cart_item = current_customer.cart_items.find_by(item_id: params[:cart_item][:item_id])#←セットアップの文章,customer_idとitem_idを参照して紐づけた(paramsでやろうとしたことを代わりにしている)
     if @cart_item.blank?
       @cart_item = current_customer.cart_items.build(item_id: params[:cart_item][:item_id])#←newとbuildは同じ意味合い
-      @cart_item.amount += params[:cart_item][:amount].to_i#ここでやっとamountの紐づけ(paramsでやろうとしたこと)、trueバージョン
+      @cart_item.amount += params[:cart_item][:amount].to_i#ここでやっとamountの紐づけ(paramsでやろうとしたこと)、trueバージョン(商品追加)
       @cart_item.save
     else
       @cart_item.update(amount: params[:cart_item][:amount].to_i)#ここでやっとamountの紐づけ(paramsでやろうとしたこと)、falseバージョン

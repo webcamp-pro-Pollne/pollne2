@@ -4,7 +4,7 @@ class CartItem < ApplicationRecord
   belongs_to :customer
 
   def tannka
-    price * 1.08
+    item.price * 1.08
   end
 
   def syoukei
