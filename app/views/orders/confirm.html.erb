@@ -72,7 +72,7 @@
         <%= f.hidden_field :total_payment,:value => @order.shipping + current_customer.total_price %>
         <!--ステータスはコントローラで定義して送る-->
         <div class = "row">
-        <%= f.submit "注文を確定する",class:"btn btn-success mb-5 mx-auto" %>
+        <%= f.submit "注文を確定する",class:"btn btn-create mb-5 mx-auto" %>
         </div>
       <% end %>
     </div>

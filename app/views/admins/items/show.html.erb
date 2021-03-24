@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= attachment_image_tag @item, :image, :fill, 60, 60, fallback: "no_image.jpeg" %>
+      <%= attachment_image_tag @item, :image, :fill, 300, 250, fallback: "no_image.jpeg" %>
     </div>
     <div class="col">
       <table class="table">
@@ -35,7 +35,7 @@
           </td>
         </tr>
       </table>
-      <%= link_to "編集する", edit_admins_item_path(@item.id), class:"btn btn-success" %>
+      <%= link_to "編集する", edit_admins_item_path(@item.id), class:"btn btn-create" %>
     </div>
   </div>
 </div>
