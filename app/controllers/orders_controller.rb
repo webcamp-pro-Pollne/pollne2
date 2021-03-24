@@ -3,18 +3,18 @@ class OrdersController < ApplicationController
   #before_action :order_params, only: :confirm
 
   def new
-    #Order.delete(:order)#この一文がわからない
     @order = Order.new
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.order(created_at: :desc)
+    #@orders_details = @orders.orders_details
   end
 
-  #def show
-    #@order = Order.find(params[:id])
-    # @cart_items = Order.cart_items.all
-  #end
+  def show
+    @order = Order.find(params[:id])
+    #@orders_details = @order.orders_details
+  end
 
   def confirm
     @order = Order.new(order_params)

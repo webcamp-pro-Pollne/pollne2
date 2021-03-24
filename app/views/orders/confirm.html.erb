@@ -1,12 +1,12 @@
 <div class = "container">
   <div class = "row">
     <div class = "mx-auto" style = "width: 800px;">
-      <h2>注文情報確認</h2>
       <div class = "mb-4">
-        <ol class = "nav">
-          <li class = "d-inline-block bg-light text-center mr-2" style="width: 100px;">1.入力</li>
-          <li class = "current d-inline-block bg-info text-center mr-2" style="width: 100px;">2.確認</li>
-          <li class = "d-inline-block bg-light text-center" style="width: 100px;">3.完了</li>
+        <h2 class= "text-md-center border-bottom border-3">注文情報確認</h2>
+        <ol class = "nav d-flex justify-content-around">
+          <li class = "d-inline-block bg-light text-center mr-2 col-md-3 border border-secondary" style="width: 100px;"><strong>1.入力</strong></li>
+          <li class = "current d-inline-block bg-info text-center mr-2 col-md-3 border border-secondary" style="width: 100px;"><strong>2.確認</strong></li>
+          <li class = "d-inline-block bg-light text-center col-md-3 border border-secondary" style="width: 100px;"><strong>3.完了</strong></li>
         </ol>
       </div>
       <div class = "row">
@@ -25,9 +25,9 @@
             <% current_customer.cart_items.each do |cart_item| %>
               <tr>
                 <td><%= attachment_image_tag cart_item.item, :image,:fill,50,50,format: "jpeg",fallback: "no_image.jpg",size: "50x50" %></td>
-                <td><%= cart_item.tannka.floor %>円</td>
+                <td><%= cart_item.tannka.floor.to_s(:delimited) %>円</td>
                 <td><%= cart_item.amount %></td>
-                <td><%= cart_item.syoukei %>円</td>
+                <td><%= cart_item.syoukei.to_s(:delimited) %>円</td>
               </tr>
             <% end %>
             </tbody>
@@ -39,15 +39,15 @@
             <tbody>
               <tr>
                 <td>送料</td>
-                <td><%= @order.shipping %>円</td>
+                <td><%= (@order.shipping).to_s(:delimited) %>円</td>
               </tr>
               <tr>
                 <td>商品合計</td>
-                <td><%= current_customer.total_price %>円</td>
+                <td><%= (current_customer.total_price).to_s(:delimited) %>円</td>
               </tr>
               <tr>
                 <td>請求金額</td>
-                <td><%= @order.shipping + current_customer.total_price %>円</td>
+                <td><%= (@order.shipping + current_customer.total_price).to_s(:delimited) %>円</td>
               </tr>
             </tbody>
           </table>
@@ -71,7 +71,9 @@
         <%= f.hidden_field :shipping,:value => @order.shipping %>
         <%= f.hidden_field :total_payment,:value => @order.shipping + current_customer.total_price %>
         <!--ステータスはコントローラで定義して送る-->
-        <%= f.submit "注文を確定する",class:"btn btn-create" %>
+        <div class = "row">
+        <%= f.submit "注文を確定する",class:"btn btn-create mb-5 mx-auto" %>
+        </div>
       <% end %>
     </div>
   </div>
