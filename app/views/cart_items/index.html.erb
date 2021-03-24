@@ -5,7 +5,7 @@
         <h2>ショッピングカート</h2><!--destroy_allはすべてのデータを消すので、引数としてカートのすべてのデータをわたすためこんかいは(@cart_item)を渡している。なので、アクションではallのきじゅつはいらない。-->
           <%= link_to "カートを空にする",cart_item_destroy_all_path(@cart_items),method: :delete,class: "btn btn-danger ml-auto" %>
       </div>
-      <table class = "table table-bordered mt-3" >
+      <table class = "table table-bordered table-hover mt-3" >
         <thead>
           <tr>
             <th>商品名</th>
@@ -29,7 +29,7 @@
                   <%= f.submit "変更" %>
                 </td>
               <% end %>
-              <td><%= cart_item.syoukei %>円</td>
+              <td><%= cart_item.syoukei.to_s(:delimited) %>円</td>
               <td><%= link_to "削除",cart_item_path(cart_item.id),method: :delete,class:"btn btn-danger" %></td>
             </tr>
           <% end %>
@@ -46,7 +46,7 @@
               <% @cart_items.each do |cart_item| %>
                 <% @sum += cart_item.syoukei %>
               <% end %>
-              <%= @sum.floor %>円
+              <%= @sum.floor.to_s(:delimited) %>円
               <%#= CartItem.sum_tax(@sum) %>
               <!--↑インスタンス変数にモデルで定義した関数は使えないので使うならこのように引数として用いる-->
             </td>
@@ -54,12 +54,21 @@
         </table>
       </div>
       </br>
-      <%= link_to "情報入力画面に進む",new_order_path,class:"btn btn-success" %> <!--cart_itemは現在のカスタマーのものしか存在しない、さらにアソシエーションでcart_itemとcustomerでくんでいるため、idの受け渡しもいらない。よってfor_withのpostでデータを送る必要がなく、link_toでページ移動して大丈夫。個数変更のcreateアクションでsaveをかけているのがここで機能している。-->
-      <%#= form_with model: @order,method: :post,url: orders_new_path,local: true do |f| %>
-        <%#= f.hidden_field :item_id,:value => @cart_items.pluck(:id).to_s %> <!--pluck()で持ってきたい()のみを持ってこれる。@orderが送り先、item_idが送る内容(orderにはそのカラムがないため、保存はされないがデータとして送られる。)個数もこのidだけを送る方法で、あとはデータベースからとってきてもらうことで情報として送ることができる。-->
-        <%#= f.hidden_field :item_i,:value => @item.id %>
-        <%#= f.submit "情報入力画面に進む",class: "btn btn-success ml-3" %>
-      <%# end %>
+      <div class = "row">
+        <%= link_to "情報入力画面に進む",new_order_path,class:"btn btn-success mx-auto" %> <!--cart_itemは現在のカスタマーのものしか存在しない、さらにアソシエーションでcart_itemとcustomerでくんでいるため、idの受け渡しもいらない。よってfor_withのpostでデータを送る必要がなく、link_toでページ移動して大丈夫。個数変更のcreateアクションでsaveをかけているのがここで機能している。-->
+        <%#= form_with model: @order,method: :post,url: orders_new_path,local: true do |f| %>
+          <%#= f.hidden_field :item_id,:value => @cart_items.pluck(:id).to_s %> <!--pluck()で持ってきたい()のみを持ってこれる。@orderが送り先、item_idが送る内容(orderにはそのカラムがないため、保存はされないがデータとして送られる。)個数もこのidだけを送る方法で、あとはデータベースからとってきてもらうことで情報として送ることができる。-->
+          <%#= f.hidden_field :item_i,:value => @item.id %>
+          <%#= f.submit "情報入力画面に進む",class: "btn btn-success ml-3" %>
+        <%# end %>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
   </div>
 </div>

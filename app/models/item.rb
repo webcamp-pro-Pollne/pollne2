@@ -12,7 +12,7 @@ class Item < ApplicationRecord
       (price * 1.08).floor.to_s(:delimited)
     end
 
-    
+
 
 end
 
