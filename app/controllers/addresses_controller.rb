@@ -1,16 +1,16 @@
 class AddressesController < ApplicationController
   before_action :authenticate_customer!
+  
 
   def index
-
-    @addresses = Address.all
-    @address = Address.new
+    
+    @addresses = current_customer.addresses.all
+    @address = current_customer.addresses.new
 
   end
 
   def create
-      @address = Address.new(address_params)
-	    @address.customer_id = current_customer.id
+      @address = current_customer.addresses.new(address_params)
 	    @address.save
 	        redirect_to  request.referer
 
@@ -18,11 +18,11 @@ class AddressesController < ApplicationController
 
 
   def edit
-    @addresses = Address.find(params[:id])
+    @addresses = current_customer.addresses.find(params[:id])
   end
 
   def update
-    @addresses = Address.find(params[:id])
+    @addresses = current_customer.addresses.find(params[:id])
     if @addresses.update(address_params)
       redirect_to addresses_path
     else
@@ -31,7 +31,7 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-     @address = Address.find(params[:id])
+     @address = current_customer.addresses.find(params[:id])
      @address.destroy
      redirect_to addresses_path
 
