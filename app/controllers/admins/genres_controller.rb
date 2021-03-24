@@ -23,7 +23,7 @@ class Admins::GenresController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @genre = Genre.find(params[:id])
     @genre.destroy
