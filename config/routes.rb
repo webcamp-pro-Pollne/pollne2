@@ -46,7 +46,7 @@ namespace :admins do
 end
 
 namespace :admins do
-    resources :order_details, only: [:update]
+    resources :orders_details, only: [:update]
 end
 
 get 'search/search'
