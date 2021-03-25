@@ -4,19 +4,19 @@
   </div>
 
   <div class="row">
-    <%= form_with model:@genre, url: admins_genres_path, local: true do |f| %>
-    <table class="table table-borderless">
+     <tbody>
       <tr>
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name %></td>
         <td><%= f.submit "新規登録", class: "btn btn-create" %></td>
       </tr>
+     </tbody>
     </table>
     <% end %>
   </div>
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
     <table class="table">
       <tr>
         <th>ジャンル</th>
