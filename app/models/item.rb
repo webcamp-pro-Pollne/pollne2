@@ -4,7 +4,7 @@ class Item < ApplicationRecord
     has_many :orders_details
 
     # belongs_to :customer
-    has_many :genres
+    belongs_to :genre
 
     attachment :image
 
