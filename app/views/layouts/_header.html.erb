@@ -4,6 +4,11 @@
       <%= link_to "/",  data: {"turbolinks" => false}, class:"navbar-brand header-logo" do %>
         <%= image_tag 'nagano_cake_logo.png', :size => '160x80'  %>
       <% end %>
+      <% if customer_signed_in? %>in? %>
+        <%= current_customer.customer.last_name %> 様 <br>ご来店いただきありがとうございます
+      <% else %>
+        <p>ご来店いただきありがとうございます<br>購入はログイン後に行えます</p>
+      <% end %>
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li><%= link_to "商品一覧", items_path, class:"nav-link" %></li>
