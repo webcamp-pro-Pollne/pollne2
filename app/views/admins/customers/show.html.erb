@@ -40,13 +40,13 @@
                  <% else %>
                    <%= "有効" %>
                  <% end %>
-              </td>          
+              </td>
         　</tr>
-        　
+
         　<!--「注文履歴一覧を見る」リンクを追加-->
       </table>
         <div class ="customer_link text-left" >
-      <%= link_to "編集する", edit_admins_customer_path(@customer.id) , class:"btn btn-success" %>
-      <%= link_to "注文履歴一覧を見る", admins_order_path, class:"btn btn-info" %>
+      <%= link_to "編集する", edit_admins_customer_path(@customer.id) , class:"btn btn-create" %>
+      <%= link_to "注文履歴一覧を見る", admins_order_path, class:"btn btn-back" %>
     </div>
 </div>

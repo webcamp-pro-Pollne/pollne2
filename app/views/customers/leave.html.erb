@@ -12,11 +12,11 @@
           <div class = "row">
             <div class= "col-md-1">
             </div>
-            <div class = "col-md-5 text-right"><%= link_to customers_my_page_path, class: "btn btn-primary col-md-6" do %>
+            <div class = "col-md-5 text-right"><%= link_to customers_my_page_path, class: "btn btn-back col-md-6" do %>
             <i class="far fa-hand-point-up"></i>&nbsp;&nbsp;退会しない
             <% end %>
             </div>
-            <div class = "col-md-5 text-left"><%= link_to customers_withdraw_path, method: :patch, class: "btn btn-danger col-md-6" do %>
+            <div class = "col-md-5 text-left"><%= link_to customers_withdraw_path, method: :patch, class: "btn btn-delete col-md-6" do %>
             <i class="fas fa-burn"></i>&nbsp;&nbsp;退会する
             <% end %>
             </div>

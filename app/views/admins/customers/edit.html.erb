@@ -3,9 +3,9 @@
 
     <h4 class="text-center col-md-9">登録情報編集</h4>
   </div>
-  
+
   <%= form_with model: @customer, url: admins_customer_path, local: true , method: :patch do |f| %>
-    
+
     <div class="form-inline mb-3">
     <label class="mr-4">会員ID</label>
     <p><%= @customer.id %></p>
@@ -55,7 +55,7 @@
 
 
     <div class="form-group">
-      <%= f.submit "変更内容を保存", class: "btn btn-success" %>
+      <%= f.submit "変更内容を保存", class: "btn btn-create" %>
 
     </div>
   <% end  %>
