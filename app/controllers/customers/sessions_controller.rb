@@ -3,17 +3,6 @@
 class Customers::SessionsController < Devise::SessionsController
    before_action :reject_user, only: [:create]
 
-  protected
-
-  def reject_user
-    @customer = Customer.find_by(email: params[:customer][:email].downcase)
-    if @customer
-      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
-        redirect_to new_customer_session_path
-      end
-    end
-  end
-
   # GET /resource/sign_in
   # def new
   #   super
@@ -34,4 +23,18 @@ class Customers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+    protected
+
+  def reject_user
+    @customer = Customer.find_by(email: params[:customer][:email].downcase)
+    if @customer
+      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
+        redirect_to new_customer_session_path
+      end
+    end
+  end
+  def after_sign_in_path_for(resource)
+    root_path
+  end
 end

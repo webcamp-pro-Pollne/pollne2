@@ -16,7 +16,7 @@
           <%= f.text_field :name %>
         </div>
         <div class = "action"><br>
-          <%= f.submit "登録する", class: "btn btn-success" %>
+          <%= f.submit "登録する", class: "btn btn-create" %>
         </div>
       <% end %>
     </div>
@@ -35,8 +35,8 @@
           	<td><%= addresses.address %></td>
             <td><%= addresses.name %></td>
           	<td>
-          	  <%= link_to "編集する", edit_address_path(addresses), class: "btn btn-success" %>
-          		<%= link_to "削除する", address_path(addresses), method: :delete, class: "btn btn-danger" %>
+          	  <%= link_to "編集する", edit_address_path(addresses), class: "btn btn-create" %>
+          		<%= link_to "削除する", address_path(addresses), method: :delete, class: "btn btn-delete" %>
           	 </td>
           </tr>
         <% end %>

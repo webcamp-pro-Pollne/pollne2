@@ -7,8 +7,16 @@ Rails.application.routes.draw do
     delete 'admins/sign_out' => 'admins/sessions#destroy', as: 'destroy_admin_session'
   end
 
-
-  devise_for :customers, :path => "customer/"
+  devise_for :customers, skip: :all
+  devise_scope :customer do
+    get 'customer/sign_up' => 'customers/registrations#new', as: 'new_customer_registration'
+    post 'customer' => 'customers/registrations#create', as: 'customer_registration'
+    get 'customer/sign_in' => 'customers/sessions#new', as: 'new_customer_session'
+    post 'customer/sign_in' => 'customers/sessions#create', as: 'customer_session'
+    delete 'customer/sign_out' => 'customers/sessions#destroy', as: 'destroy_customer_session'
+    # get 'customer/password' => 'customers/password#new', as: 'new_customer_password'
+    # post 'customer/password' => 'customers/password#new', as: 'new_customer_password'
+  end
 
 
 root "items#top"

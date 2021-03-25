@@ -7,7 +7,7 @@
     　  <div class = "row">
          <!--<h3 class = "text-center col-md-3 shadow-lg bg-white rounded">会員情報&nbsp;&nbsp;<i class="fas fa-pen-square"></i></h3>-->
           <div class = "col-md-9">
-            <%= link_to edit_customers_path, class: "btn btn-info mb-2", "data-turbolinks": false do %>
+            <%= link_to edit_customers_path, class: "btn btn-back mb-2", "data-turbolinks": false do %>
             <i class = "fas fa-wrench"></i>&nbsp;&nbsp;会員情報編集はこちら！
             <% end %>
           </div>
@@ -47,13 +47,13 @@
     </div>
     <div class = "col-md-3 text-center" >
       <!--<h3 class = "shadow-lg bg-white rounded"><i class="fas fa-gift "></i>&nbsp;&nbsp;配送先一覧</h3>-->
-        <%= link_to  addresses_path, class: "btn btn-success col-md-12" do %>
+        <%= link_to  addresses_path, class: "btn btn-orange col-md-12" do %>
         <i class="fas fa-address-book"></i>配送先一覧はこちら！
         <% end %>
     </div>
     <div class = "col-md-4 text-center">
       <!--<h3 class = "shadow-lg bg-white rounded"><i class="fas fa-file"></i>&nbsp;&nbsp;注文履歴一覧はこちら！</h3>-->
-        <%= link_to  addresses_path, class: "btn btn-success col-md-12" do %>
+        <%= link_to  orders_path, class: "btn btn-purple col-md-12" do %>       
         <i class="fas fa-cheese"></i>注文履歴一覧はこちら！
         <% end %>
     </div>

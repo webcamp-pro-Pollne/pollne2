@@ -1,14 +1,14 @@
 <%- if controller_name != 'sessions' %>
-  <p><%= link_to "こちら", new_session_path(resource_name), style:"color: blue;" %> からログインしてください。</p><br />
+  <p><%= link_to "こちら", new_customer_session_path(resource_name), style:"color: blue;" %> からログインしてください。</p><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p><%= link_to "こちら", new_registration_path(resource_name), style:"color: green;" %> から新規登録を行ってください。</p><br />
+  <p><%= link_to "こちら", new_customer_registration_path(resource_name), style:"color: green;" %> から新規登録を行ってください。</p><br />
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), style:"color: orange;" %><br />
-<% end %>
+<%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%#= link_to "パスワードをお忘れですか？", new_customer_password_path(resource_name), style:"color: orange;" %><br />
+<%# end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
