@@ -4,8 +4,8 @@
       <%= link_to "/",  data: {"turbolinks" => false}, class:"navbar-brand header-logo" do %>
         <%= image_tag 'nagano_cake_logo.png', :size => '160x80'  %>
       <% end %>
-      <% if customer_signed_in? %>in? %>
-        <%= current_customer.customer.last_name %> 様 <br>ご来店いただきありがとうございます
+      <% if customer_signed_in? %>
+        <%= current_customer.last_name %> 様 <br>ご来店いただきありがとうございます
       <% else %>
         <p>ご来店いただきありがとうございます<br>購入はログイン後に行えます</p>
       <% end %>
@@ -28,7 +28,7 @@
           <% else %>
             <li><%= link_to "About", about_path, class:"nav-link" %></li>
             <li><%= link_to "商品一覧", items_path, class:"nav-link" %></li>
-            <li><%= link_to "sushi", new_customer_session_path, class:"nav-link" %></li>
+            <li><%= link_to "sushi", new_customer_session_path, class:"nav-link",data: {"turbolinks" => false} %></li>
             <li><%= link_to "shisu", new_customer_registration_path, class:"nav-link" %></li>
           <% end %>
         </ul>
