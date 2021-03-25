@@ -1,5 +1,17 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters,if: :devise_controller?
+  
+  def autheniticate_admin
+    if current_admin == nil
+      redirect_to new_admin_session_path
+    end
+  end
+  
+  def autheniticate_customer
+    if current_customer == nil
+      redirect_to new_customer_session_path
+    end
+  end
 
   def after_sign_in_path_for(resource)
       root_path

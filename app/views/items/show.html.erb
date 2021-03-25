@@ -13,7 +13,9 @@
               <%= form_with model: @cart_item,method: :post,local: true do |f| %><!--ここはアイテムだが、カートアイテムに送るので参照モデルはカートアイテム-->
                 <%= f.hidden_field :item_id,:value => @item.id %><!--item_idにvalueとして@item.idを入れている-->
                 <%= f.select :amount, options_for_select(@numbers,{selected: @cart_item.amount.to_i})  %>
-                <%= f.submit "カートに入れる",class: "btn btn-create ml-3 fas" %>
+                <% if customer_signed_in? %>
+                  <%= f.submit "カートに入れる",class: "btn btn-create ml-3 fas" %>
+                <% end %>
               <% end %>
               <% else %>
                 <h4>販売停止中</h4>
