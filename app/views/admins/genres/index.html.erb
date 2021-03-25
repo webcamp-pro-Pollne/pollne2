@@ -5,18 +5,20 @@
 
   <div class="row">
     <%= form_with model:[:admins, @genre], local: true do |f| %>
-    <table class="table-borderless">
+    <table class="table table-borderless">
+     <tbody>
       <tr>
         <td><%= f.label :name, "ジャンル名" %></td>
         <td><%= f.text_field :name %></td>
         <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
       </tr>
+     </tbody>
     </table>
     <% end %>
   </div>
 
   <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
     <table class="table">
       <tr>
         <th>ジャンル</th>

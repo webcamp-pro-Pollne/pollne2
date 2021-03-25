@@ -1,7 +1,7 @@
 <div class="container">
   <h2>商品新規登録</h2>
+   <%= form_with model:[:admins, @item], local: true do |f| %>
   <div class="row">
-    <%= form_with model:[:admins, @item], local: true do |f| %>
     <table class="table">
       <tr>
         <td><%= f.label :image, "商品画像" %></td>
