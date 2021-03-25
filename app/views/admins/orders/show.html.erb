@@ -16,7 +16,7 @@
             </tr>
              <tr>
               <th>配送先</th>
-              <th><%= @order.customer.address %></br><%= @order.name %></th>
+              <th>〒<%= @order.postal_code %></br><%= @order.address %></br><%= @order.name %></th>
             </tr>
             <tr>
               <th>支払方法</th>
@@ -25,7 +25,10 @@
             <tr>
               <th>注文ステータス</th>
               <%= form_with model: @order, method: :patch, url: admins_order_path(@order), local: true do |f| %>
-              <th colspan = "2"><%= f.select :status, Order.statuses.keys.to_a, {} %>   <%= f.submit "更新", class:"btn btn-success" %></th>
+              <th colspan = "2">
+                <%= f.select :status, Order.statuses.keys.to_a, {} %>   
+                <%= f.submit "更新", class:"btn btn-create" %>
+              </th>
             </tr>
               <% end %>
           </thead>
@@ -40,7 +43,7 @@
               <th>単価(税込)</th>
               <th>数量</th>
               <th>小計</th>
-              <th>製品ステータス</th>
+              <th>製作ステータス</th>
               <th></th>
             <tr>
               <% x = 0 %>
@@ -52,7 +55,7 @@
               <th><%= orders_detail.syoukei %>円</th>
               <%= form_with model: orders_detail, method: :patch, url: admins_orders_detail_path(orders_detail), local: true do |f| %>
               <th><%= f.select :making_status, OrdersDetail.making_statuses.keys.to_a, {}  %></th><!--モデル名以降は、enumの配列持ってくるテンプレート-->
-              <th><%= f.submit "更新", class:"btn btn-success" %></th>
+              <th><%= f.submit "更新", class:"btn btn-create" %></th>
             </tr>
               <% end %>
               <% end %>
