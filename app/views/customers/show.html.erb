@@ -1,13 +1,13 @@
-<h1 class = "text-center p-3 mb-2 bg-success text-white"><i class="far fa-id-card"></i>&nbsp;&nbsp;マイページ</h1>
+<h1 class = "text-center p-3 mb-2"><i class="far fa-id-card"></i>&nbsp;&nbsp;マイページ</h1>
 <div class = "container">
     <div class = "row">
       <div class = "col-md-1">
         </div>
       <div class = "col-md-10">
     　  <div class = "row">
-         <h3 class = "text-center col-md-3 shadow-lg bg-white rounded">会員情報&nbsp;&nbsp;<i class="fas fa-pen-square"></i></h3>
+         <!--<h3 class = "text-center col-md-3 shadow-lg bg-white rounded">会員情報&nbsp;&nbsp;<i class="fas fa-pen-square"></i></h3>-->
           <div class = "col-md-9">
-            <%= link_to edit_customers_path, class: "btn btn-info", "data-turbolinks": false do %>
+            <%= link_to edit_customers_path, class: "btn btn-info mb-2", "data-turbolinks": false do %>
             <i class = "fas fa-wrench"></i>&nbsp;&nbsp;会員情報編集はこちら！
             <% end %>
           </div>
@@ -46,18 +46,21 @@
     <div class = "col-md-3">
     </div>
     <div class = "col-md-3 text-center" >
-      <h3 class = "shadow-lg bg-white rounded"><i class="fas fa-gift "></i>&nbsp;&nbsp;配送先一覧</h3>
+      <!--<h3 class = "shadow-lg bg-white rounded"><i class="fas fa-gift "></i>&nbsp;&nbsp;配送先一覧</h3>-->
         <%= link_to  addresses_path, class: "btn btn-success col-md-12" do %>
-        <i class="fas fa-share-square"></i>配送先一覧はこちら！
+        <i class="fas fa-address-book"></i>配送先一覧はこちら！
         <% end %>
     </div>
     <div class = "col-md-4 text-center">
-      <h3 class = "shadow-lg bg-white rounded"><i class="fas fa-file"></i>&nbsp;&nbsp;注文履歴一覧はこちら！</h3>
-        <%#order_details　作成後　%>
+      <!--<h3 class = "shadow-lg bg-white rounded"><i class="fas fa-file"></i>&nbsp;&nbsp;注文履歴一覧はこちら！</h3>-->
+        <%= link_to  orders_path, class: "btn btn-success col-md-12" do %>
+        <i class="fas fa-cheese"></i>注文履歴一覧はこちら！
+        <% end %>
     </div>
     <div class = "col-md-4">
     </div>
     <div class = "col-md-1">
     </div>
   </div>
+  <br>
   <div>

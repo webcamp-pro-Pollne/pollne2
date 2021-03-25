@@ -25,29 +25,68 @@
   color: #596e79;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 a {
+  color: #2c2c2c;
+}
+a:hover {
   color: #596e79;
 }
+
 main {
   background-color: #f0ece2;
   color: #596e79;
 }
+.nav-link {
+  color: #efe4e4;
+}
 
 .btn {
-  background-color: #dfd3c3;
-  opacity: 0.6;
+  color: #6d6262;
 }
 .btn:hover {
+  color: #6d6262;
+}
+.btn-genre {
   background-color: #dfd3c3;
+  opacity: 0.8;
+}
+.btn-genre:hover {
+  background-color: #dfd3c3;
+  opacity: 1;
+}
+.btn-delete {
+  background-color: #f0b4aa;
+  opacity: 0.8;
+}
+.btn-delete:hover {
+  opacity: 1;
+}
+.btn-create {
+  background-color: #aae4aa;
+  opacity: 0.8;
+}
+.btn-create:hover {
+  opacity: 1;
+}
+.btn-back {
+  background-color: #89c6e2;
+  opacity: 0.8;
+}
+.btn-back:hover {
   opacity: 1;
 }
 
 .header-logo {
-  height: 80%;
+  height: 100%;
 }
 
 #box-slide-show{
-  position: ralative;
+  position: relative;
   height: 600px;
 }
 .top-text {
@@ -60,6 +99,7 @@ main {
   margin:0;
   padding:0;
   z-index: 10;
+  background-color: rgba(0,0,0,0.3);
 }
 .top-text h3 {
   color: white;
@@ -89,9 +129,6 @@ main {
   height: 1000px;
 }
 
-.about-text {
-  color: blue;
-}
 
 .admin-items-index-btn a:hover{
   opacity: 1;

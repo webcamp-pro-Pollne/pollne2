@@ -1,20 +1,22 @@
 class OrdersController < ApplicationController
+  
+  before_action :autheniticate_customer
 
   #before_action :order_params, only: :confirm
 
   def new
-    #Order.delete(:order)#この一文がわからない
     @order = Order.new
   end
 
   def index
-    @orders = Order.all
+    @orders = current_customer.orders.order(created_at: :desc)
+    #@orders_details = @orders.orders_details
   end
 
-  #def show
-    #@order = Order.find(params[:id])
-    # @cart_items = Order.cart_items.all
-  #end
+  def show
+    @order = Order.find(params[:id])
+    #@orders_details = @order.orders_details
+  end
 
   def confirm
     @order = Order.new(order_params)
@@ -28,7 +30,7 @@ class OrdersController < ApplicationController
       @order.name = current_customer.full_name#モデルで定義している
 
     elsif params[:address_select]  == "1"#登録住所から選んだ場合
-      @sta = params[:order][:order_address].to_i
+      @sta = params[:order][:address_select].to_i
       @order_address = Address.find(@sta)#いつもコンソールでやってるfind(1)のようなレコード検索(登録されている住所の検索)が、上記の.to_iでできるようになっている。
       @order.postal_code = @order_address.postal_code
       @order.address = @order_address.address
