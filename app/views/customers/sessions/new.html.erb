@@ -1,15 +1,15 @@
 <div class="container">
-  <h2>ログイン</h2>
-    <div class="row mt-5">
-      <h4>会員の方はこちらからログイン</h4>
-      <table class="table table-borderless mt-3">
+  <h2 class="mt-2">ログイン</h2>
+  <div class="row mt-5">
+    <h4>会員の方はこちらからログイン</h4>
+    <table class="table table-borderless mt-3">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <tr>
           <td><%= f.label :メールアドレス %></td>
           <td colspan="2"><%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50" %></td>
         </tr>
         <tr>
-          <td ><%= f.label :パスワード %></td>
+          <td><%= f.label :パスワード %></td>
           <td colspan="2"><%= f.password_field :password, autocomplete: "current-password",size: "50" %></td>
         </tr>
         <tr>
@@ -22,9 +22,16 @@
             </td>
           <% end %>
         </tr>
-    <% end %>
-  </table>
+      <% end %>
+    </table>
+  </div>
   <div class="row my-5">
     <%= render "customers/shared/links" %>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>

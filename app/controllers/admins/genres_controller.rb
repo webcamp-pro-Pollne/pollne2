@@ -1,5 +1,7 @@
 class Admins::GenresController < ApplicationController
 
+  before_action :autheniticate_admin
+
   def index
     @genres = Genre.all
     @genre = Genre.new

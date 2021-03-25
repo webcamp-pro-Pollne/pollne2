@@ -25,12 +25,18 @@
   color: #596e79;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 a {
   color: #2c2c2c;
 }
 a:hover {
   color: #596e79;
 }
+
 main {
   background-color: #f0ece2;
   color: #596e79;
@@ -80,7 +86,7 @@ main {
 }
 
 #box-slide-show{
-  position: ralative;
+  position: relative;
   height: 600px;
 }
 .top-text {
@@ -93,6 +99,7 @@ main {
   margin:0;
   padding:0;
   z-index: 10;
+  background-color: rgba(0,0,0,0.3);
 }
 .top-text h3 {
   color: white;
@@ -122,9 +129,6 @@ main {
   height: 1000px;
 }
 
-.about-text {
-  color: blue;
-}
 
 .admin-items-index-btn a:hover{
   opacity: 1;

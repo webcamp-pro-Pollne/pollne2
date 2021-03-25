@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  
+  before_action :autheniticate_customer
 
   # before_action :setup_cart_item!, only: [:create, :update, :destroy]
 

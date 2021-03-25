@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  
+  before_action :autheniticate_customer
 
   #before_action :order_params, only: :confirm
 
