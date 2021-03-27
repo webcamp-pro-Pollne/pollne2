@@ -1,0 +1,74 @@
+<div class = "container">
+  <div class = "row" >
+    <div class =  "col-md-10 mx-auto">
+      <div class = "d-flex mt-3">
+        <h2>ショッピングカート</h2><!--destroy_allはすべてのデータを消すので、引数としてカートのすべてのデータをわたすためこんかいは(@cart_item)を渡している。なので、アクションではallのきじゅつはいらない。-->
+          <%= link_to "カートを空にする",cart_item_destroy_all_path(@cart_items),method: :delete,class: "btn btn-delete ml-auto" %>
+      </div>
+      <table class = "table table-bordered table-hover mt-3" >
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr><!--↓アソシエーション的にitemだけで参照できる？-->
+              <td>
+                <%= attachment_image_tag cart_item.item, :image,:fill,50,50,format: "jpeg",fallback: "no_image.jpg",size: "50x50" %>
+                <%= cart_item.item.name %>
+              </td>
+              <td><%= cart_item.item.tax_price %>円 </td>
+              <%= form_with model: cart_item,method: :patch,local: true do |f| %>
+                <td>
+                  <%= f.select :amount, options_for_select(@numbers,{selected: cart_item.amount.to_i}) %>
+                  <%= f.submit "変更" %>
+                </td>
+              <% end %>
+              <td><%= (cart_item.syoukei).to_s(:delimited) %>円</td>
+              <td><%= link_to "削除",cart_item_path(cart_item.id),method: :delete,class:"btn btn-delete" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class = "d-flex mt-3">
+        <%= link_to "買い物を続ける",root_path,class: "btn btn-back ml-4", data: {"turbolinks" => false} %>
+        <table class = "table table-bordered col-md-3 ml-auto" >
+          <tr>
+            <td>合計金額</td>
+            <td>
+              <!--cart_item内の合計金額をループさせて算出-->
+              <% @sum = 0 %>
+              <% @cart_items.each do |cart_item| %>
+                <% @sum += cart_item.syoukei %>
+              <% end %>
+              <%= @sum.floor.to_s(:delimited) %>円
+              <%#= CartItem.sum_tax(@sum) %>
+              <!--↑インスタンス変数にモデルで定義した関数は使えないので使うならこのように引数として用いる-->
+            </td>
+          </tr>
+        </table>
+      </div>
+      </br>
+      <div class = "row">
+        <%= link_to "情報入力画面に進む",new_order_path,class:"btn btn-create mx-auto" %> <!--cart_itemは現在のカスタマーのものしか存在しない、さらにアソシエーションでcart_itemとcustomerでくんでいるため、idの受け渡しもいらない。よってfor_withのpostでデータを送る必要がなく、link_toでページ移動して大丈夫。個数変更のcreateアクションでsaveをかけているのがここで機能している。-->
+        <%#= form_with model: @order,method: :post,url: orders_new_path,local: true do |f| %>
+          <%#= f.hidden_field :item_id,:value => @cart_items.pluck(:id).to_s %> <!--pluck()で持ってきたい()のみを持ってこれる。@orderが送り先、item_idが送る内容(orderにはそのカラムがないため、保存はされないがデータとして送られる。)個数もこのidだけを送る方法で、あとはデータベースからとってきてもらうことで情報として送ることができる。-->
+          <%#= f.hidden_field :item_i,:value => @item.id %>
+          <%#= f.submit "情報入力画面に進む",class: "btn btn-success ml-3" %>
+        <%# end %>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

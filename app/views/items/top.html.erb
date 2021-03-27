@@ -1,0 +1,36 @@
+<div class="container">
+  <div id="box-slide-show">
+    <div id="skippr-images">
+      <div class="image1"></div>
+      <div class="image2"></div>
+      <div class="image3"></div>
+      <div class="image4"></div>
+      <div class="image5"></div>
+    </div>
+    <div class="top-text">
+      <h3 class="text-center">
+        ようこそ、ながのCAKEへ！</br>
+        このサイトは、ケーキ販売はECサイトになります。</br>
+        会員でない方も商品の回覧はできますが、</br>
+        購入には会員登録が必要になります。
+      </h3>
+    </div>
+  </div>
+
+  <%= render "search", genres:@genres, items:@items %>
+  <h2>新着商品</h2>
+  <div class="row" style="flex-wrap: wrap;">
+    <% @items.each do |item| %>
+      <div class="items-index mx-3">
+        <%= link_to item_path(item.id) do %>
+          <%= attachment_image_tag item, :image, :fill, 250, 200, fallback: "no_image.jpeg" %>
+        <% end %>
+        <p><%= link_to item.name, item_path(item.id) %></p>
+        <p>¥ <%= item.tax_price %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="pb-5">
+    <p class="text-right"><%= link_to "全ての商品を見る>", items_path %></p>
+  </div>
+</div>

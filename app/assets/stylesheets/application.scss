@@ -1,0 +1,153 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #596e79;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  color: #2c2c2c;
+}
+a:hover {
+  color: #596e79;
+}
+
+main {
+  background-color: #f0ece2;
+  color: #596e79;
+}
+.nav-link {
+  color: #efe4e4;
+}
+
+.btn {
+  color: #6d6262;
+}
+.btn:hover {
+  color: #6d6262;
+}
+.btn-genre {
+  background-color: #dfd3c3;
+  opacity: 0.8;
+}
+.btn-genre:hover {
+  background-color: #dfd3c3;
+  opacity: 1;
+}
+.btn-delete {
+  background-color: #f0b4aa;
+  opacity: 0.8;
+}
+.btn-delete:hover {
+  opacity: 1;
+}
+.btn-create {
+  background-color: #aae4aa;
+  opacity: 0.8;
+}
+.btn-create:hover {
+  opacity: 1;
+}
+.btn-back {
+  background-color: #89c6e2;
+  opacity: 0.8;
+}
+.btn-back:hover {
+  opacity: 1;
+}
+.btn-orange {
+  background-color: #e9a063;
+  opacity: 0.8;
+}
+.btn-orange:hover {
+  opacity: 1;
+}
+.btn-purple {
+  background-color: #c593f1;
+  opacity: 0.8;
+}
+.btn-purple:hover {
+  opacity: 1;
+}
+
+.header-logo {
+  height: 100%;
+}
+
+#box-slide-show{
+  position: relative;
+  height: 600px;
+}
+.top-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  z-index: 10;
+  background-color: rgba(0,0,0,0.3);
+}
+.top-text h3 {
+  color: white;
+}
+.image1 {
+  background-image: url(cake1.jpeg);
+}
+.image::before {
+  background-color: rgba(0,0,0,0.5);
+}
+.image2 {
+  background-image: url(cake3.jpeg);
+}
+.image3 {
+  background-image: url(cake4.jpeg);
+}
+.image4 {
+  background-image: url(cake2.jpeg);
+}
+.image5 {
+  background-image: url(cookie2.jpeg);
+}
+
+.about {
+  background-image: url(sawamura.png);
+  background-size: cover;
+  height: 1000px;
+}
+
+
+.admin-items-index-btn a:hover{
+  opacity: 1;
+}
+
+.admin-items-index-btn a {
+  opacity: 0.5;
+}

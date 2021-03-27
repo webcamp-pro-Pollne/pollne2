@@ -1,0 +1,90 @@
+<div class = "container">
+  <div class = "row">
+    <div class "col-md-1">
+    </div>
+    <div class = "col-md-9">
+      <h1>注文履歴詳細</h1>
+        <table class = "table table-borderless">
+          <thead>
+            <tr>
+              <th>購入者</th>
+              <th><%= link_to @order.customer.full_name %></th>
+            </tr>
+            <tr>
+              <th>注文日</th>
+              <th><%= @order.created_at.strftime("%Y/%m/%d %H:%m") %></th>
+            </tr>
+             <tr>
+              <th>配送先</th>
+              <th>〒<%= @order.postal_code %></br><%= @order.address %></br><%= @order.name %></th>
+            </tr>
+            <tr>
+              <th>支払方法</th>
+              <th><%= @order.payment_method %></th>
+            </tr>
+            <tr>
+              <th>注文ステータス</th>
+              <%= form_with model: @order, method: :patch, url: admins_order_path(@order), local: true do |f| %>
+              <th colspan = "2">
+                <%= f.select :status, Order.statuses.keys.to_a, {} %>   
+                <%= f.submit "更新", class:"btn btn-create" %>
+              </th>
+            </tr>
+              <% end %>
+          </thead>
+        </table>
+    </div>
+    <div class = "col-md-2">
+      </div>
+        <table class = "table table-border col-md-7 text-right">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
+            <tr>
+              <% x = 0 %>
+              <% @order.orders_details.each do |orders_detail| %><!--orderに紐づいたordersdetailsをeachでありったけ出す-->
+              <th><%= orders_detail.item.name %></th>
+              <th><%= orders_detail.item.tax_price %>円</th>
+              <th><%= orders_detail.amount %></th>
+              <% x += orders_detail.item.price * 1.08 * orders_detail.amount %>
+              <th><%= orders_detail.syoukei %>円</th>
+              <%= form_with model: orders_detail, method: :patch, url: admins_orders_detail_path(orders_detail), local: true do |f| %>
+              <th><%= f.select :making_status, OrdersDetail.making_statuses.keys.to_a, {}  %></th><!--モデル名以降は、enumの配列持ってくるテンプレート-->
+              <th><%= f.submit "更新", class:"btn btn-create" %></th>
+            </tr>
+              <% end %>
+              <% end %>
+          </thead>
+        </table>
+        <div class = "col-md-1">
+        </div>
+        <table class = "table able-borderless col-md-3" >
+          <thead>
+            <tr>
+              <th class = "text-center">商品合計</th><!--以下のeach文でordersdetailsを出していき、価格＊個数をした後＠sumに代入→（＠sum内で加算）-->
+              <th class = "text-right">
+                <%# @sum = 0 %>
+                <%# @orders_details.each do |orders_detail| %>
+                <%# @sum += (orders_detail.price * orders_detail.amount).floor %>
+                <%# @sum += orders_detail.syoukei %>
+                  <%# end %>
+                    <%= x.floor.to_s(:delimited) %>円</th>
+            </tr>
+            <tr>
+              <th class = "text-center">送料</th>
+              <th class = "text-right"><%= @order.shipping.to_s %>円</th>
+            </tr>
+              <th class = "text-center">請求金額合計</th>
+              <th class = "text-right"><%= @order.total_payment.to_s(:delimited) %>円</th>
+            </tr>
+          </thead>
+        </table>
+         <div class = "col-md-1">
+        </div>
+  </div>
+</div>
