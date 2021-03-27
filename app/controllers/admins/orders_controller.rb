@@ -14,12 +14,28 @@ class Admins::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
      @order.update(order_params)
-      if @order.read_attribute_before_type_cast(:status) == 1
-        @order.orders_details.each do |order_detail|
-          order_detail.making_status = "製作待ち"
-          order_detail.update(making_status: order_detail.making_status)
-        end
-      end
+     orders_details_auto_status_changer(@order)
+      # if @order.read_attribute_before_type_cast(:status) == 1
+      #   @order.orders_details.each do |order_detail|
+      #     order_detail.making_status = "製作待ち"
+      #     order_detail.update(making_status: order_detail.making_status)
+      #   end
+      # elsif @order.read_attribute_before_type_cast(:status) == 2
+      #     @order.orders_details.each do |order_detail|
+      #     order_detail.making_status = "製作中"
+      #     order_detail.update(making_status: order_detail.making_status)
+      #   end
+      # elsif @order.read_attribute_before_type_cast(:status) == 3
+      #     @order.orders_details.each do |order_detail|
+      #     order_detail.making_status = "製作中"
+      #     order_detail.update(making_status: order_detail.making_status)
+      #   end
+      # elsif @order.read_attribute_before_type_cast(:status) == 4
+      #     @order.orders_details.each do |order_detail|
+      #     order_detail.making_status = "製作完了"
+      #     order_detail.update(making_status: order_detail.making_status)
+      #   end
+      #end
 
     redirect_back(fallback_location: root_path)
   end
