@@ -35,11 +35,16 @@
           <tr>
             <td>商品合計</td>
             <td>
-              <% @sum = 0 %>
-              <% @order.orders_details.each do |orders_detail| %>
-                <% @sum += orders_detail.price * orders_detail.amount %><!--消費税計算済み-->
+              <% x = 0 %>
+              <% @order.orders_details.each do |orders_detail| %><!--orderに紐づいたordersdetailsをeachでありったけ出す-->
+              <% x += orders_detail.item.price * 1.08 * orders_detail.amount %>
               <% end %>
-              <%= @sum.floor.to_s(:delimited) %>円
+              <%= x.floor.to_s(:delimited) %>円
+              <%# @sum = 0 %>
+              <%# @order.orders_details.each do |orders_detail| %>
+                <%# @sum += orders_detail.price * orders_detail.amount %><!--消費税計算済み-->
+              <%# end %>
+              <%#= @sum.floor.to_s(:delimited) %>
               <%#= @order.total_price %>
             </td>
           </tr>

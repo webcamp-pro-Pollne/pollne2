@@ -54,5 +54,41 @@ class ApplicationController < ActionController::Base
         # session[:cart_item_id] = @cart_item.id
     #   end
 #   end
+   def orders_details_auto_status_changer(order)
+      if order.read_attribute_before_type_cast(:status) == 1
+        order.orders_details.each do |order_detail|
+          order_detail.update(making_status: 1)
+        end
+      end
+   end
+
+    def order_auto_status_changer(order)
+      if  making_now(order)
+        order.update(status: 2)
+
+      elsif making_perfect_all(order)
+        order.update(status: 3)
+      end
+    end
+
+    def making_now(order)
+      order.orders_details.each do |order_detail|
+        #puts order_detail.read_attribute_before_type_cast(:making_status)
+        if order_detail.read_attribute_before_type_cast(:making_status) == 2
+          return true
+
+        end
+      end
+      return false
+    end
+
+    def making_perfect_all(order)
+      order.orders_details.each do |order_detail|
+         unless order_detail.read_attribute_before_type_cast(:making_status) == 3
+           return false
+         end
+      end
+      return true
+    end
 
 end
