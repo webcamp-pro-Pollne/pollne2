@@ -55,14 +55,14 @@ class ApplicationController < ActionController::Base
     #   end
 #   end
    def orders_details_auto_status_changer(order)
-      if order.read_attribute_before_type_cast(:status) == 1
-        order.orders_details.each do |order_detail|
-          order_detail.update(making_status: 1)
+      if order.read_attribute_before_type_cast(:status) == 1#orderのstatusカラムに１が入ったら
+        order.orders_details.each do |order_detail|#orders_detailsをeachで回し、
+          order_detail.update(making_status: 1)#回して出た分のmaking_statusを１にupdateする
         end
       end
    end
 
-    def order_auto_status_changer(order)
+    def order_auto_status_changer(order)#（制作ステータスを切り替えると注文ステータスが切り替わる関数。）if文の関数は以下に定義
       if  making_now(order)
         order.update(status: 2)
 
@@ -74,9 +74,9 @@ class ApplicationController < ActionController::Base
     def making_now(order)
       order.orders_details.each do |order_detail|
         #puts order_detail.read_attribute_before_type_cast(:making_status)
-        if order_detail.read_attribute_before_type_cast(:making_status) == 2
+        if order_detail.read_attribute_before_type_cast(:making_status) == 2#1つでも数値の２が入ってらtrueを返す。
           return true
-
+          #returnは条件になるまで処理を継続する。
         end
       end
       return false
@@ -88,7 +88,7 @@ class ApplicationController < ActionController::Base
            return false
          end
       end
-      return true
+      return true#すべてのmaking_statusに３が入ったら、trueをかえす
     end
 
 end

@@ -3,7 +3,7 @@ class Admins::OrdersController < ApplicationController
   before_action :autheniticate_admin
 
   def top
-    @orders = Order.page(params[:page]).reverse_order
+    @orders = Order.page(params[:page]).reverse_order#カミナリ
   end
 
   def show
@@ -14,7 +14,8 @@ class Admins::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
      @order.update(order_params)
-     orders_details_auto_status_changer(@order)
+     orders_details_auto_status_changer(@order)#関数はappcation_controllerに定義
+     
       # if @order.read_attribute_before_type_cast(:status) == 1
       #   @order.orders_details.each do |order_detail|
       #     order_detail.making_status = "製作待ち"

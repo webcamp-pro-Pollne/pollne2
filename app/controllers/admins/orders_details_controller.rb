@@ -4,7 +4,7 @@ class Admins::OrdersDetailsController < ApplicationController
 
   def update
     @orders_detail = OrdersDetail.find(params[:id])
-    @order = @orders_detail.order
+    @order = @orders_detail.order#関数はappcation_controllerに定義
 
     #@orders_details = @order.orders_detail
      #making_hai = []
@@ -20,7 +20,7 @@ class Admins::OrdersDetailsController < ApplicationController
     # end
 
     @orders_detail.update(orders_detail_params)
-    order_auto_status_changer(@order)
+    order_auto_status_changer(@order)#関数はappcation_controllerに定義
     redirect_to admins_order_path(@orders_detail.order)
   end
 
